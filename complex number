@@ -1,0 +1,42 @@
+package labprograms;
+
+public class Complex {
+    int a;
+    int b;
+
+    Complex(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    Complex multiplyTo(Complex c) {
+
+        int x = (this.a * c.a) - (this.b * c.b);
+        int y = (this.a * c.b) + (this.b * c.a);
+        Complex product = new Complex(x, y);
+        return product;
+    }
+
+    Complex add(Complex c) {
+
+        int x = this.a + c.a;
+        int y = this.b + c.b;
+        Complex sum = new Complex(x, y);
+        return sum;
+    }
+
+    public String toString() {
+        return a + "+i" + b;
+    }
+}
+
+class DemoComplex {
+    public static void main(String[] args) {
+        Complex c1 = new Complex(1, 2);
+        Complex c2 = new Complex(3, 4);
+        Complex product = c1.multiplyTo(c2);
+        System.out.println("product is:" + product);
+        Complex sum = c1.add(c2);
+        System.out.println(sum);
+    }
+}
