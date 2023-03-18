@@ -1,0 +1,44 @@
+package labprograms;
+
+import java.util.*;
+
+public class Matrices {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int i, j, k, l;
+        System.out.println("enter size of matrix 1");
+        i = sc.nextInt();
+        j = sc.nextInt();
+        System.out.println("enter size of matrix 2");
+        k = sc.nextInt();
+        l = sc.nextInt();
+        if (j != k)
+            System.out.println("multiplication is not possible");
+        else {
+            System.out.println("enter matrix 1");
+            int[][] A = new int[i][j];
+            for (int x = 0; x < i; x++)
+                for (int y = 0; y < j; y++)
+                    A[x][y] = sc.nextInt();
+            System.out.println("enter matrix 2");
+            int[][] B = new int[i][j];
+            for (int x = 0; x < k; x++)
+                for (int y = 0; y < l; y++)
+                    B[x][y] = sc.nextInt();
+            System.out.println("product matrix is:");
+            int[][] c = new int[j][k];
+            for (int x = 0; x < i; x++) {
+                for (int y = 0; y < l; y++) {
+                    c[x][y] = 0;
+                    for (int z = 0; z < k; z++) {
+                        c[x][y] = c[x][y] + A[x][z] * B[z][y];
+                    }
+                    System.out.print(c[x][y] + " ");
+                }
+                System.out.println(" ");
+
+            }
+        }
+
+    }
+}
