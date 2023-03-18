@@ -1,0 +1,52 @@
+package labprograms;
+
+import java.util.Scanner;
+
+public class Account {
+    int accountNo;
+    String name;
+    int phNo;
+    float balanceAmt;
+    final float Minimum_Balance = 10000.0f;
+
+    void getInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter account number");
+        accountNo = sc.nextInt();
+        System.out.println("enter account holder name");
+        name = sc.next();
+        System.out.println("enter account holder phone number");
+        phNo = sc.nextInt();
+        System.out.println("enter initial balance in account");
+        balanceAmt = sc.nextInt();
+
+    }
+
+    void deposit(float amt) {
+        balanceAmt = balanceAmt + amt;
+    }
+
+    void withdraw(float amt) {
+        if (amt > Minimum_Balance)
+            System.out.println("insufficient balance");
+        else
+            balanceAmt = balanceAmt - amt;
+        System.out.println("balance after withdrawin is " + balanceAmt);
+    }
+
+    public String toString() {
+        return "money in your account " + accountNo + "is" + balanceAmt;
+    }
+}
+
+class DemoAccount {
+    public static void main(String[] args) {
+        Account a = new Account();
+        a.getInput();
+        System.out.println("balance in your account " + a.balanceAmt);
+        a.deposit(6000.0f);
+        System.out.println("balance in your account " + a.balanceAmt);
+        a.withdraw(5000.0f);
+        System.out.println(a);
+    }
+}
