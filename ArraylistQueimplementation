@@ -1,0 +1,32 @@
+package labprograms;
+
+import java.util.*;
+
+public class ColcnApplnDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> al = new ArrayList<String>();
+        while (true) {
+            System.out.println("1.enter");
+            System.out.println("2.delete");
+            System.out.println("3.display");
+            System.out.println("enter your choice");
+            int ch = sc.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.println("enter srting");
+                    String s = sc.next();
+                    al.add(s);
+                    break;
+                case 2:
+                    System.out.println("removed element is " + al.remove(0));
+                    break;
+                case 3:
+                    System.out.println("elements in arraylist are : " + al);
+                    break;
+
+            }
+        }
+
+    }
+}
