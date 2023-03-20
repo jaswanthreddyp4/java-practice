@@ -1,0 +1,95 @@
+package labprograms;
+
+import java.util.Scanner;
+import labprograms.*;
+
+//import labprograms.Faculty;
+class AgeException extends Exception {
+    AgeException(String msg) {
+        super(msg);
+    }
+}
+
+interface Department {
+    void readData();
+
+    void printData();
+}
+
+public class ISE_department {
+    Scanner sc = new Scanner(System.in);
+    Faculty f1 = new Faculty();
+    Faculty f2 = new Faculty();
+    Faculty f3 = new Faculty();
+
+    public void readData() {
+        System.out.println("enter faculty 1 details");
+        System.out.println("enter faculty1 name");
+        f1.name = sc.next();
+        System.out.println("enter faculty1 designation");
+        f1.designation = sc.next();
+        System.out.println("enter age of faculty");
+        f1.age = sc.nextInt();
+        try {
+            if (f1.age > 58)
+                throw new AgeException("Age is more than 58");
+        } catch (AgeException e) {
+            System.out.println(e);
+        }
+        System.out.println("enter years of experience");
+        f1.yearsOfExperience = sc.nextInt();
+        System.out.println("enter joinning date");
+        f1.joiningDate = sc.next();
+        System.out.println("enter subjects handled by faculty");
+        f1.subj_Handled = sc.next();
+        System.out.println("********************************");
+        System.out.println("enter faculty 2 details");
+        System.out.println("enter faculty2 name");
+        f2.name = sc.next();
+        System.out.println("enter faculty2 designation");
+        f2.designation = sc.next();
+        System.out.println("enter age of faculty");
+        f2.age = sc.nextInt();
+        try {
+            if (f2.age > 58)
+                throw new AgeException("Age is more than 58");
+        } catch (AgeException e) {
+            System.out.println(e);
+            System.out.println("Enter the correct age again");
+            f2.age = sc.nextInt();
+
+        }
+        System.out.println("enter years of experience");
+        f2.yearsOfExperience = sc.nextInt();
+        System.out.println("enter joinning date");
+        f2.joiningDate = sc.next();
+        System.out.println("enter subjects handled by faculty");
+
+        f2.subj_Handled = sc.next();
+    }
+
+    public void printData() {
+        System.out.println("faculty 1 details are:");
+        System.out.println("faculty 1 name is : " + f1.name);
+        System.out.println("faculty 1 designation is : " + f1.designation);
+        System.out.println("faculty 1 age is : " + f1.age);
+        System.out.println("faculty 1 experience is : " + f1.yearsOfExperience);
+        System.out.println("faculty 1 joining date is : " + f1.joiningDate);
+        System.out.println("subjects handleld by faculty 1 are : " + f1.subj_Handled);
+        System.out.println("****************************************************************");
+        System.out.println("faculty 2 details are:");
+        System.out.println("faculty 2 name is : " + f2.name);
+        System.out.println("faculty 2 designation is : " + f2.designation);
+        System.out.println("faculty 2 age is : " + f2.age);
+        System.out.println("faculty 2 experience is : " + f2.yearsOfExperience);
+        System.out.println("faculty 2 joining date is : " + f2.joiningDate);
+        System.out.println("subjects handleld by faculty 2 are : " + f2.subj_Handled);
+    }
+
+    public static void main(String[] args) {
+        ISE_department is = new ISE_department();
+        is.readData();
+        is.printData();
+
+    }
+}
