@@ -1,29 +1,9 @@
 package labprograms;
-
 import java.util.Scanner;
 
 interface Lamb {
     int factorial();
 }
-
-public class LambPgm {
-    public int factorial() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter n");
-        int n = sc.nextInt();
-        int a = 1;
-        if (n == 0)
-            return 1;
-        else
-            while (n != 0) {
-
-                a = a * (n);
-                n--;
-            }
-        return a;
-    }
-}
-
 class LambAnonymous {
     public static void main(String[] args) {
         Lamb l = () -> {
