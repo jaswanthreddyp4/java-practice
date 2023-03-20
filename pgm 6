@@ -1,0 +1,34 @@
+package labprograms;
+
+import java.util.Arrays;
+
+public class Pgm6 {
+    public static void main(String[] args) {
+        String s = "India is a democratic country";
+        System.out.println(s.substring(1, 10));
+        System.out.println(s.replace("democratic", "big"));
+        String s1 = "hello";
+        String s2 = "Hello";
+        System.out.println(s.compareTo(s2));
+        System.out.println(s1.compareToIgnoreCase(s2));
+        System.out.println(s1 + " " + s2);
+
+        String st = "elephant whispherers";
+        System.out.println("original string is:" + st);
+        char[] ch = st.toCharArray();
+        Arrays.sort(ch);
+        String sorted_string = new String(ch);
+        System.out.println("sortedString is:" + sorted_string);
+
+    }
+}
+
+/* output:
+ndia is a
+India is a big country
+1
+0
+hello Hello
+original string is:elephant whispherers
+sortedString is: aeeeehhhilnpprrsstw
+*/
