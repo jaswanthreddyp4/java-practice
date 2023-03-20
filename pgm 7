@@ -1,0 +1,72 @@
+package labprograms;
+
+public class Person {
+    String name;
+    int age;
+    String education;
+    int yearsOfExperince;
+    int numberOfLoans;
+    float loanAmt;
+    float basic;
+    float da;
+    float hra;
+
+    Person(String name, int age, String education, int yearsOfExperince, int numberOfLoans, float loanAmt, float basic,
+            float da, float hra) {
+        this.name = name;
+        this.age = age;
+        this.education = education;
+        this.yearsOfExperince = yearsOfExperince;
+        this.numberOfLoans = numberOfLoans;
+        this.loanAmt = loanAmt;
+        this.basic = basic;
+        this.da = da;
+        this.hra = hra;
+    }
+
+    void isEligible() {
+        if (basic < 22000)
+            System.out.println("person is not eligible for loan");
+        else
+            System.out.println("person is eligible for loan");
+
+    }
+
+    float taxPay() {
+        System.out.println("amount of tax to be paid is:");
+        float taxamount = (float) (basic - ((1.2 * hra) + (0.2 * da)));
+        return taxamount;
+    }
+
+    void isEligiblePromotion() {
+        if (loanAmt == 0 && yearsOfExperince > 3)
+            System.out.println("person is eligible for promotion");
+        else
+            System.out.println("person is not eligible for promotion");
+    }
+
+    void display() {
+        System.out.println("Details of person are:");
+        System.out.println("name:" + name);
+        System.out.println("age:" + age);
+        System.out.println("education:" + education);
+        System.out.println("basic salary:" + basic);
+        System.out.println("da salary:" + da);
+        System.out.println("hra:" + hra);
+        System.out.println("years of experience:" + yearsOfExperince);
+        System.out.println("loan amount:" + loanAmt);
+        System.out.println("number of loans:" + numberOfLoans);
+    }
+
+}
+
+class DemoPerson {
+    public static void main(String[] args) {
+
+        Person p = new Person("jaswanth", 20, "B.Tech", 5, 0, 0, 40000, 1000, 1500);
+        p.isEligible();
+        p.isEligiblePromotion();
+        System.out.println(p.taxPay());
+        p.display();
+    }
+}
