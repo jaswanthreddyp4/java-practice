@@ -1,0 +1,82 @@
+package StudentPackage;
+
+import java.util.Scanner;
+
+import Tempo.*;
+
+class CreditLimitException extends Exception {
+
+    CreditLimitException(String msg) {
+
+        super(msg);
+    }
+}
+
+public class RegisterStudent {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        StudentImplemented st = new StudentImplemented();
+        st.getName();
+        st.getBranch();
+
+        String[] subj = { "Maths", "Java", "dms", "coa", "uhv", "aec" };
+        int[] credits = new int[subj.length];
+        System.out.println("enter  credits in respective subjects");
+        for (int i = 0; i < subj.length; i++)
+            credits[i] = sc.nextInt();
+
+        int totalCredits = 0;
+        for (int i : credits)
+            totalCredits = totalCredits + i;
+        try {
+            if (totalCredits > 30)
+                throw new CreditLimitException("unable to register more than 30 credits ,please withdraw a subject");
+        } catch (CreditLimitException e) {
+            System.out.println(e);
+        }
+        int[] marks = new int[6];
+        System.out.println("enter marks in each subjects");
+        try {
+            for (int i = 0; i < 6; i++)
+                marks[i] = sc.nextInt();
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("only 6 subjects are there!");
+        }
+
+        int totalMarks = 0;
+        for (int i : marks)
+            totalMarks = totalMarks + i;
+        double percentage = (totalMarks / 6);
+        double cgpa = percentage / 10;
+        st.display();
+        System.out.println("cgpa :" + cgpa);
+
+    }
+
+}
+
+
+output:
+enter your name
+jaswanth
+enter your branch
+ISE
+enter  credits in respective subjects
+3
+3
+3
+3
+2
+1
+enter marks in each subjects
+100
+90
+90
+90
+90
+95
+name of Studentjaswanth
+Branch of Student isISE
+cgpa :9.2
