@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class LinkedListAppln {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        LinkedList<String> ll = new LinkedList<String>();
+        ll.add("ram");
+        ll.add("sita");
+        ll.add("jaswanth");
+        ll.add("priya");
+        ll.add("prasawitha");
+        ll.add("advaitha bhushan");
+        ll.add("rahman");
+
+        Iterator itr = ll.iterator();
+        while (itr.hasNext()) {
+            String name = (String) itr.next();
+            if (name.length() <= 5)
+                System.out.println(name);
+
+        }
+    }
+}
+
+output:
+ram
+sita
+priya
