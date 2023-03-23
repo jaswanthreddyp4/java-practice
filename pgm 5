@@ -21,7 +21,7 @@ public class Matrices {
                 for (int y = 0; y < j; y++)
                     A[x][y] = sc.nextInt();
             System.out.println("enter matrix 2");
-            int[][] B = new int[i][j];
+            int[][] B = new int[k][l];
             for (int x = 0; x < k; x++)
                 for (int y = 0; y < l; y++)
                     B[x][y] = sc.nextInt();
