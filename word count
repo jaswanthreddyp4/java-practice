@@ -1,0 +1,19 @@
+public class WordCounter {
+    public static int countOccurrences(String text, String word) {
+        String[] words = text.split("\\s+");
+        int count = 0;
+        for (String w : words) {
+            if (w.equals(word)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        String text = "the quick brown fox jumps over the lazy dog";
+        String word = "the";
+        int count = countOccurrences(text, word);
+        System.out.println("The word \"" + word + "\" appears " + count + " times in the text.");
+    }
+}
