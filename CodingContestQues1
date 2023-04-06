@@ -1,0 +1,61 @@
+/*  enter a number 1 to 10^4
+    if n=1
+    output:1 1
+    if n=2
+    output:3 2
+    if n=3
+    output:3 6
+    if n=4
+    output:10 24
+    if n=5
+    output:15 120
+    if n=6
+    output:21 720
+*/
+
+//code:
+
+
+package UVCE_CONTEST;
+
+import java.util.*;
+
+public class question2 {
+
+    int factori(int n) {
+        int a = 1;
+        if (n == 0)
+            return 1;
+        else {
+            for (int i = n; i > 0; i--)
+                a = a * i;
+        }
+        return a;
+    }
+
+    int append(int n) {
+        int res = 1;
+        if (n % 2 == 0) {
+            res = n * (n / 2);
+            res = res + (n / 2);
+        } else {
+            res = n * (n - 2);
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        question2 q = new question2();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter n between 1 to 18");
+        int n = sc.nextInt();
+
+        ArrayList<Integer> al = new ArrayList();
+        al.add(q.append(n));
+        al.add(q.factori(n));
+        for (int i = 0; i < al.size(); i++)
+            System.out.print(al.get(i) + " ");
+
+    }
+}
