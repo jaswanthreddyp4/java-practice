@@ -1,0 +1,55 @@
+
+/*
+user is asked to enter a number between 1 to 18
+if entered number is even one lojic is followed if odd another lojic is followed 
+and factorial also found
+output should have the two seperated by space
+sample: 10 5
+        52 120
+*/
+
+code:
+
+import java.util.*;
+
+public class question2 {
+
+    int factori(int n) {
+        int a = 1;
+        if (n == 0)
+            return 1;
+        else {
+            for (int i = n; i > 0; i--)
+                a = a * i;
+        }
+        return a;
+    }
+
+    int append(int n) {
+        int res = 1;
+        if (n % 2 == 0) {
+            res = n * (n / 2);
+            res = res + (n / 2);
+        } else if (n == 1)
+            return 1;
+        else {
+            res = n * (n - 2);
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        question2 q = new question2();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter n between 1 to 18");
+        int n = sc.nextInt();
+
+        ArrayList<Integer> al = new ArrayList();
+        al.add(q.append(n));
+        al.add(q.factori(n));
+        for (int i = 0; i < al.size(); i++)
+            System.out.print(al.get(i) + " ");
+
+    }
+}
